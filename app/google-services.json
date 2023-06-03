@@ -1,0 +1,86 @@
+{
+  "project_info": {
+    "project_number": "1004241359239",
+    "firebase_url": "https://audioplay-65714.firebaseio.com",
+    "project_id": "audioplay-65714",
+    "storage_bucket": "audioplay-65714.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004241359239:android:1f123b941b1885c5b94322",
+        "android_client_info": {
+          "package_name": "com.parmjeet.gurujisong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004241359239-nfd0d2kbm0i8nskiepn19ap4atc9iou5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.parmjeet.gurujisong",
+            "certificate_hash": "094192a9f9f7de4ab8a29be61ae1877289e6d9a3"
+          }
+        },
+        {
+          "client_id": "1004241359239-7li6mac949db09ciljmssfk2j9pkl4f1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBfmZPgjfIAUPVgr5q34lmOoUMY2G9wKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004241359239-7li6mac949db09ciljmssfk2j9pkl4f1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-4379271297318191~6916146657"
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1004241359239:android:54334dba5ce5ba28b94322",
+        "android_client_info": {
+          "package_name": "com.parmjeet.music_player_admin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1004241359239-p8go5ccmv2aos9ovvom05pnoumspludu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.parmjeet.music_player_admin",
+            "certificate_hash": "094192a9f9f7de4ab8a29be61ae1877289e6d9a3"
+          }
+        },
+        {
+          "client_id": "1004241359239-7li6mac949db09ciljmssfk2j9pkl4f1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBBfmZPgjfIAUPVgr5q34lmOoUMY2G9wKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1004241359239-7li6mac949db09ciljmssfk2j9pkl4f1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
