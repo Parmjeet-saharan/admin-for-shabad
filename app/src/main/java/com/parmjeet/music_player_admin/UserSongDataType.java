@@ -7,6 +7,15 @@ public class UserSongDataType  implements Serializable {
     private String uri;
     private String status;
     private String path;
+    private String lastPath;
+
+    public void setLastPath(String lastPath) {
+        this.lastPath = lastPath;
+    }
+
+    public String getLastPath() {
+        return lastPath;
+    }
 
     public void setPath(String path) {
         this.path = path;

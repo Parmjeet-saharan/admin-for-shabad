@@ -75,6 +75,7 @@ public class AllSongAdapter extends RecyclerView.Adapter<AllSongAdapter.MyViewHo
             public void onClick(View v) {
                 try {
                     onItemClick.getPosition(link);
+                    Toast.makeText(context, require_detail.getPath() , Toast.LENGTH_LONG).show();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -96,7 +97,7 @@ public class AllSongAdapter extends RecyclerView.Adapter<AllSongAdapter.MyViewHo
                             @Override
                             public void setStringData(String data) {
                                 if(data.equals("true")){
-                                    Toast.makeText(context,   "delete sucessfully", Toast.LENGTH_LONG).show();
+                                    Toast.makeText(context,"delete sucessfully", Toast.LENGTH_LONG).show();
                                     allData.remove(position);
                                     notifyItemRemoved(position);
                                     notifyItemRangeChanged(position, allData.size()-position);
@@ -115,7 +116,7 @@ public class AllSongAdapter extends RecyclerView.Adapter<AllSongAdapter.MyViewHo
                 builder.show();
             }
         });
-        //   Toast.makeText(context, require_detail + " is here", Toast.LENGTH_LONG).show();
+   //        Toast.makeText(context, require_detail.getPath() , Toast.LENGTH_LONG).show();
 
     }
 

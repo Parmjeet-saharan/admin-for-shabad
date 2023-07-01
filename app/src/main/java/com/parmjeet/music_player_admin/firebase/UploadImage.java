@@ -89,7 +89,6 @@ public class UploadImage {
             sb.append(AlphaNumericString
                     .charAt(index));
         }
-
         return sb.toString();
     }
 }

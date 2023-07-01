@@ -115,7 +115,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         }else{
             // Google Sign In failed, update UI appropriately
             Log.e("logintry", "Login Unsuccessful. "+result.getStatus().getStatusMessage()+" "+result.getStatus().toString()+" "+result.getStatus().getStatusCode());
-            Toast.makeText(this, "Login Unsuccessful", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Login Unsuccessful "+result.getStatus().getStatusMessage()+" "+result.getStatus().toString()+" "+result.getStatus().getStatusCode(), Toast.LENGTH_SHORT).show();
         }
     }
     private void firebaseAuthWithGoogle(AuthCredential credential) {

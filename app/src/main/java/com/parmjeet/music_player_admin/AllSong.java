@@ -47,7 +47,7 @@ public class AllSong extends AppCompatActivity {
                 songAdapter.setOnItemClick(new AllSongAdapter.OnItemClick() {
                     @Override
                     public void getPosition(String link) throws IOException {
-                        Toast.makeText(AllSong.this, link, Toast.LENGTH_SHORT).show();
+                   //     Toast.makeText(AllSong.this, link, Toast.LENGTH_SHORT).show();
                         Log.d("allSong","link is "+link);
                         Uri uri = Uri.parse(link);
                         if(music.isPlaying()){
@@ -59,7 +59,7 @@ public class AllSong extends AppCompatActivity {
                             music.setAudioStreamType(AudioManager.STREAM_MUSIC);
                         }
                         if(!music.isPlaying()){
-                            Toast.makeText(AllSong.this, "song not playing", Toast.LENGTH_SHORT).show();
+                     //       Toast.makeText(AllSong.this, "song not playing", Toast.LENGTH_SHORT).show();
                             music.setDataSource(AllSong.this,uri);
                             music.prepare();
                             music.start();

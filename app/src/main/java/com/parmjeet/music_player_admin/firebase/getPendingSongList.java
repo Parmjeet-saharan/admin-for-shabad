@@ -1,6 +1,8 @@
 package com.parmjeet.music_player_admin.firebase;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -32,7 +34,8 @@ public class getPendingSongList {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                //         Toast.makeText(context,value, Toast.LENGTH_SHORT).show();
+               //          Toast.makeText(context,value, Toast.LENGTH_SHORT).show();
+                Log.d("somglist", "onDataChange: "+value);
             }
 
             @Override

@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                   if(uri != null){
                       UploadImage uploadImage = new UploadImage();
-
                       uploadImage.uploadImage("audio/"+name,uri,name,MainActivity.this);
                       uploadImage.setOnItemClickForFetchData(new UploadImage.OnItemClick() {
                           @Override

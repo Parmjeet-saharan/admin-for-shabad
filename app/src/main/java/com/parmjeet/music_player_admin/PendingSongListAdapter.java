@@ -87,20 +87,36 @@ public class PendingSongListAdapter extends RecyclerView.Adapter<PendingSongList
                         .setTitle("APPROVE FILE");
                 builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        String path = require_detail.getPath()+"/status";
-                        AddSong addSong = new AddSong();
-                        addSong.addUserWork(path,null,context,"approve");
-                        addSong.setOnItemClickForFetchData(new AddSong.OnItemClick() {
-                            @Override
-                            public void setStringData(String data) {
-                                if(data.equals("true")){
-                                    Toast.makeText(context,   "approve sucessfully", Toast.LENGTH_LONG).show();
-                                    allData.remove(position);
-                                    notifyItemRemoved(position);
-                                    notifyItemRangeChanged(position, allData.size()-position);
-                                }
-                            }
-                        });
+                                    DataType song = new DataType();
+                                    song.setPath(require_detail.getLastPath());
+                                    song.setUri(link);
+                                    song.setSonglastsegmant(songName);
+                                    String path2 = "audiosong/"+require_detail.getLastPath();
+                                    AddSong addSong2 = new AddSong();
+                                    addSong2.addUserWork(path2,song,context,"");
+                                    addSong2.setOnItemClickForFetchData(new AddSong.OnItemClick() {
+                                        @Override
+                                        public void setStringData(String data) {
+                                            if(data.equals("true")){
+                                                String path = require_detail.getPath()+"/status";
+                                                AddSong addSong = new AddSong();
+                                                addSong.addUserWork(path,null,context,"approved");
+                                                addSong.setOnItemClickForFetchData(new AddSong.OnItemClick() {
+                                                    @Override
+                                                    public void setStringData(String data) {
+                                                        if (data.equals("true")) {
+                                                            Toast.makeText(context,   "approve sucessfully", Toast.LENGTH_LONG).show();
+                                                            allData.remove(position);
+                                                            notifyItemRemoved(position);
+                                                            notifyItemRangeChanged(position, allData.size()-position);
+                                                        }
+                                                    }
+                                                    });
+
+                                            }
+                                        }
+                                    });
+
                     }
                 });
                 builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {

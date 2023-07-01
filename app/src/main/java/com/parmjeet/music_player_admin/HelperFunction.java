@@ -24,9 +24,10 @@ public class HelperFunction {
             while (iterator.hasNext()) {
                 key = (String) iterator.next();
                 JSONObject newUser= obj.getJSONObject(key);
+                String path = "audiosong/"+key;
+                Log.d("requestlist", "stringToJsonAllSong: "+path);
                 String songName = getrealvaluefromjson(newUser.getString("songlastsegmant"));
                 String link = getrealvaluefromjson(newUser.getString("uri"));
-                String path = "audiosong/"+key;
                 DataType dataType = new DataType();
                 dataType.setSonglastsegmant(songName);
                 dataType.setUri(link);
@@ -63,29 +64,50 @@ public class HelperFunction {
             Iterator iterator = obj.keys();
             String key = null;
             while (iterator.hasNext()) {
-                key = (String) iterator.next();
-                JSONObject newUserAll= obj.getJSONObject(key);
-                JSONObject newUser = newUserAll.getJSONObject("songs");
-                Log.d("requestlist",key+" value "+newUser.toString());
-                Iterator iterator2 = newUser.keys();
-                String key2 = null;
-                while (iterator2.hasNext()) {
-                    key2 = (String) iterator2.next();
-                    JSONObject song = newUser.getJSONObject(key2);
-                    Log.d("requestlist",key2+" value 2"+song.toString());
-                    String songName = getrealvaluefromjson(song.getString("songlastsegmant"));
-                    String link = getrealvaluefromjson(song.getString("uri"));
-                    String status = getrealvaluefromjson(song.getString("status"));
-                    String path = "Users/"+key+"/songs/"+key2;
-                    if(status.equals("pending")) {
-                        UserSongDataType dataType = new UserSongDataType();
-                        dataType.setSonglastsegmant(songName);
-                        dataType.setUri(link);
-                        dataType.setStatus("pending");
-                        dataType.setPath(path);
-                        result.add(dataType);
+                try{
+                    key = (String) iterator.next();
+                    Log.d("requestlist", "getAllPersonalSong: "+key);
+                    JSONObject newUserAll= obj.getJSONObject(key);
+                    JSONObject newUser;
+                    String userName;
+                    String imageLink = null;
+                    try {
+                        newUser = newUserAll.getJSONObject("personalSong");
+                    }catch (Exception e){
+                        continue;
                     }
+                    Log.d("requestlist",key+" value "+newUser.toString());
+                    Iterator iterator2 = newUser.keys();
+                    String key2 = null;
+                    while (iterator2.hasNext()) {
+                        try{
+                            key2 = (String) iterator2.next();
+                            JSONObject song = newUser.getJSONObject(key2);
+                            Log.d("requestlist",key2+" value 2"+song.toString());
+                            String status = getrealvaluefromjson(song.getString("status"));
+                            if(status.equals("pending")) {
+                                String songName = getrealvaluefromjson(song.getString("songlastsegmant"));
+                                String link = getrealvaluefromjson(song.getString("uri"));
+                                String path = "Users/" + key + "/personalSong/" + key2;
+                                UserSongDataType dataType = new UserSongDataType();
+                                dataType.setSonglastsegmant(songName);
+                                dataType.setUri(link);
+                                dataType.setLastPath(key2);
+                                dataType.setStatus(status);
+                                dataType.setPath(path);
+                                Log.d("userSongData", "stringtojsonconvert: have song " + dataType.getSonglastsegmant());
+                                result.add(dataType);
+                            }
+
+                        }catch(Exception excp){
+
+                        }
+
+                    }
+                }catch (Exception ex){
+
                 }
+
             }
             return result;
             //

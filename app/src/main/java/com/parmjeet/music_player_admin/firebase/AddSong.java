@@ -25,7 +25,7 @@ public class AddSong {
         mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(!singleValue.equals("")){
+                if(singleValue!= null && !singleValue.equals("")){
                     mDatabase.setValue(singleValue);
                 }
                 if(value!=null){
