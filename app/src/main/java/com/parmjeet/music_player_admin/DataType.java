@@ -6,6 +6,15 @@ public class DataType  implements Serializable {
     private String songlastsegmant;
     private String uri;
     private String path;
+    private int like;
+
+    public void setLike(int like) {
+        this.like = like;
+    }
+
+    public int getLike() {
+        return like;
+    }
 
     public void setPath(String path) {
         this.path = path;

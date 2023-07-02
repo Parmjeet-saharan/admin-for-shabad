@@ -136,6 +136,14 @@ public class AllSongAdapter extends RecyclerView.Adapter<AllSongAdapter.MyViewHo
             reject = (TextView) itemView.findViewById(R.id.reject);
         }
     }
+    public void filterList(ArrayList<DataType> filterlist) {
+        // below line is to add our filtered
+        // list in our course array list.
+        allData = filterlist;
+        // below line is to notify our adapter
+        // as change in recycler view data.
+        notifyDataSetChanged();
+    }
 }
 
 

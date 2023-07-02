@@ -42,8 +42,6 @@ public class PendingSongListAdapter extends RecyclerView.Adapter<PendingSongList
     public void setOnItemClick(PendingSongListAdapter.OnItemClick onItemClick) {
         this.onItemClick = onItemClick;
     }
-
-
     public interface OnItemClick {
         void getPosition(String link) throws IOException; //pass any things
 
@@ -90,6 +88,7 @@ public class PendingSongListAdapter extends RecyclerView.Adapter<PendingSongList
                                     DataType song = new DataType();
                                     song.setPath(require_detail.getLastPath());
                                     song.setUri(link);
+                                    song.setLike(0);
                                     song.setSonglastsegmant(songName);
                                     String path2 = "audiosong/"+require_detail.getLastPath();
                                     AddSong addSong2 = new AddSong();
@@ -169,8 +168,6 @@ public class PendingSongListAdapter extends RecyclerView.Adapter<PendingSongList
     public int getItemCount() {
         return allData.size();
     }
-
-
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView name,aprove,reject;// init the item view's
         public MyViewHolder(View itemView) {
@@ -180,6 +177,15 @@ public class PendingSongListAdapter extends RecyclerView.Adapter<PendingSongList
             aprove = (TextView) itemView.findViewById(R.id.approve);
             reject = (TextView) itemView.findViewById(R.id.reject);
         }
+
+    }
+    public void filterList(ArrayList<UserSongDataType> filterlist) {
+        // below line is to add our filtered
+        // list in our course array list.
+        allData = filterlist;
+        // below line is to notify our adapter
+        // as change in recycler view data.
+        notifyDataSetChanged();
     }
 }
 
